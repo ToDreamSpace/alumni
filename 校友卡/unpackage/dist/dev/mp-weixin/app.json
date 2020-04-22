@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/tabBar/user/user",
+    "pages/tabBar/home/home",
+    "pages/login/login",
+    "pages/login/register",
+    "pages/login/resetpasswd",
+    "pages/user/setting/setting",
+    "pages/user/myQR/myQR",
+    "pages/user/address/address",
+    "pages/user/address/edit/edit"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#f06c7a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": []
+  },
+  "permission": {},
+  "uniStatistics": {
+    "enable": false
+  },
+  "usingComponents": {}
+}

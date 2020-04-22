@@ -1,0 +1,215 @@
+{extend name="layout" /}
+{block name="right" /}
+<!-- 引入layui.css -->
+<link rel="stylesheet" href="/static/admin/lib/layui/css/layui.css">
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="/admin/index/index.html"
+            class="maincolor">首页</a>
+        <span class="c-gray en">&gt;</span>
+        校友管理
+        <span class="c-gray en">&gt;</span>
+        <a href="/admin/alumnullist/index.html" class="maincolor">添加/编辑</a>
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+            href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
+    </nav>
+    <sec/section class="Hui-article">
+        <article class="page-container">
+            <form class="form form-horizontal" action="{:url('save')}">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>姓名：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="name">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>性别：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input name="sex" type="radio" value="1" id="sex-1" checked>
+                            <label for="sex-1">男</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" value="2" id="sex-2" name="sex">
+                            <label for="sex-2">女</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>邮箱：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="email">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>电话：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="phone">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>QQ：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="qq">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>------</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>出生日期：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="bornyear">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>出生地：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="bornplace">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>------</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>工作单位：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="workunit">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>职务：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="workjob">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>工作地址：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="workplace">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>------</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>毕业院系：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="byyuanxi">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>毕业专业：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="byzhuanye">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>毕业班级：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="byclass">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>入学年份：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="ruxueyear">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>学历：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" placeholder="" id="" name="education">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>头像/图片：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                    <div class="layui-upload">
+                        <button type="button" class="layui-btn" id="test1">上传图片</button>
+                        <div class="layui-upload-list">
+                            <img style="width: 200px;" class="layui-upload-img" id="demo1">
+                            <p id="demoText"></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="img" id="img">
+                </div>
+
+
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>
+                            保存</button>
+
+                    </div>
+                </div>
+            </form>
+        </article>
+</section>
+
+<!-- 上传图片的js -->
+<script src="/static/admin/lib/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use('upload', function () {
+        var $ = layui.jquery
+            , upload = layui.upload;
+
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            , url: "{:url('Upload/upload')}" //改成您自己的上传接口
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (res) {
+                //如果上传成功
+                if (res.code ==1) {
+                    console.log(res.path);
+                    $('#img').val(res.path);
+                    return layer.msg(res.msg);
+                }else{
+                    return layer.msg(res.msg);
+                }
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- 显示校友列表的js -->
+<script>
+    
+</script>
+
+{/block}

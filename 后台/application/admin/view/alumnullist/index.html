@@ -1,0 +1,90 @@
+{extend name="layout" /}
+
+{block name="right"}
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="/admin/index/index.html" class="maincolor">首页</a> 
+		<span class="c-gray en">&gt;</span>
+		校友管理
+		<span class="c-gray en">&gt;</span>
+		<a href="/admin/alumnullist/index.html" class="maincolor">校友列表</a> 
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+				<!-- <span class="select-box inline">
+				 <select name="" class="select">
+					<option value="0">全部分类</option>
+					<option value="1">分类一</option>
+					<option value="2">分类二</option>
+				</select>
+				</span>  -->
+				<input type="text" name="tag" id="tag" placeholder="输入ID\姓名\手机号\QQ均可" style="width:250px" class="input-text">
+				<button id="search" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i>搜索</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l">
+                    <a class="btn btn-primary radius" data-title="添加" href="{:url('create')}"><i class="Hui-iconfont">&#xe600;</i> 添加</a>
+				</span>
+				<span class="r">共有数据：<strong>{$total}</strong>条</span>
+			</div>
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-bg table-hover table-sort">
+					<thead>
+						<tr class="text-c">
+							<th>ID</th>
+							<th>姓名</th>
+							<th >性别</th>
+							<th >邮箱</th>
+							<th >手机</th>
+							<th >电话</th>
+							<th >QQ</th>
+							<th >毕业院系</th>
+							<th >学历</th>
+							<th >操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{volist name="list" id="vo"} 
+						<tr class="text-c">
+							<td>{$vo.id}</td>
+							<td>{$vo.name}</td>
+							<td>{$vo.sex}</td>
+							<td>{$vo.email}</td>
+							<td>{$vo.phone}</td>
+							<td>{$vo.tel}</td>
+							<td>{$vo.qq}</td>
+							<td>{$vo.byyuanxi}</td>
+							<td>{$vo.education}</td>
+							<td class="f-14 td-manage">
+								<a  class="ml-5 btn btn-success radius" href="{:url('edit',['id'=>$vo.id])}">编辑</a>
+								<a  class="ml-5 del btn btn-danger radius" href="javascript:;" link="{:url('delete',['id'=>$vo.id])}">删除</a>
+							</td>
+						</tr> 	
+						{/volist}
+					</tbody>
+				</table>
+				<!-- 分页菜单 -->
+				<style>
+					#raw{
+						width: 100%;
+						text-align: center;
+					}
+					#raw li{
+						display:inline;
+						margin-left: 20px;
+					}
+				</style>
+				<div id="raw">{$list|raw}</div>
+			</div>
+		</article>
+	</div>
+</section>
+
+<script>
+    window.onload = function(){
+		$('#xiaoyouliebiao').show();
+    }
+</script>
+{/block}
+

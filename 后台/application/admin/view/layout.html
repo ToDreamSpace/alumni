@@ -1,0 +1,204 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="Bookmark" href="favicon.ico">
+	<link rel="Shortcut Icon" href="favicon.ico" />
+	<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+	<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="/static/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+	<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui.admin/css/style.css" />
+	<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+	<!--/meta 作为公共模版分离出去-->
+
+	<title>校友管理系统</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+</head>
+
+<body>
+
+	{include file="common/header" /}
+	{include file="common/left" /}
+
+
+	{block name="right" }
+	<section class="Hui-article-box">
+		<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/admin/index/index.html" class="maincolor">首页</a>
+			<span class="c-999 en">&gt;</span>
+			<span class="c-666">我的桌面</span>
+			<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+				href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
+		</nav>
+		<div class="Hui-article">
+			<article class="cl pd-20">
+				<p class="f-20 text-success">欢迎使用校友系统
+					<span class="f-14">v2.0</span>
+				</p>
+				<p>登录次数：</p>
+				<p>上次登录IP： 上次登录时间：</p>
+				<table class="table table-border table-bordered table-bg">
+					<thead>
+						<tr>
+							<th colspan="7" scope="col">信息统计</th>
+						</tr>
+						<tr class="text-c">
+							<th>统计</th>
+							<th>图片库</th>
+							<th>人员库</th>
+							<th>管理员</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-c">
+							<td>总数</td>
+							<td>9</td>
+							<td>206474</td>
+							<td>1</td>
+						</tr>
+						<tr class="text-c">
+							<td>今日</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr class="text-c">
+							<td>昨日</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr class="text-c">
+							<td>本周</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</article>
+			<footer class="footer">
+			</footer>
+		</div>
+	</section>
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	<script type="text/javascript" src="/static/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/admin/lib/layer/2.4/layer.js"></script>
+	<script type="text/javascript" src="/static/admin/static/h-ui/js/H-ui.js"></script>
+	<script type="text/javascript" src="/static/admin/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+	<!--/_footer /作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript">
+
+
+	</script>
+	<!--/请在上方写此页面业务相关的脚本-->
+	</div>
+	<!-- 一下为退出按钮事件 -->
+	<script type="text/javascript">
+		$(function () {
+			$('.skin-minimal input').iCheck({
+				checkboxClass: 'icheckbox-blue',
+				radioClass: 'iradio-blue',
+				increaseArea: '20%'
+			});
+
+			$('.del').click(function () {
+				var url = $(this).attr('link');
+				layer.confirm('你确定要此操作吗?', {
+					icon: 5,
+					btn: ['确定', '取消'] //按钮
+				}, function () {
+					$.get(url, function (data) {
+						if (data.code == 1) {
+							layer.alert(data.msg, { icon: 6 }, function (index) {
+								layer.close(index);
+								window.location.reload();
+							});
+						} else {
+							layer.alert(data.msg);
+						}
+					});
+				});
+			});
+
+			//表单提交
+			$("form").submit(function(e){
+                    var res = $(this).serialize();
+					var url=$(this).attr('action');
+                    $.ajax({  
+                        url:  url,
+                        data: res,  
+                        type: 'post',  
+                        success:function(data){  
+                            if (data.code == 1) {
+                                layer.alert(data.msg,{icon:6},function (index) {
+                                    layer.close(index);
+                                    window.location.href = "{:url('index')}";
+                                }); 
+                            } else{
+                                layer.alert(data.msg,{icon:5},function (index) {
+                                    layer.close(index);
+                                }); 
+                            }
+                        }
+                    });  
+                    return false; // 阻止表单跳转
+                });
+
+
+
+			//退出操作
+			$('.logout').click(function () {
+				var url = $(this).attr('link');
+				layer.confirm('你确定要此操作吗?', {
+					icon: 5,
+					btn: ['确定', '取消'] //按钮
+				}, function () {
+					$.get(url, function (data) {
+						if (data.code == 1) {
+							layer.alert(data.msg, { icon: 6 }, function (index) {
+								layer.close(index);
+								window.location.reload();
+							});
+						} else {
+							layer.alert(data.msg);
+						}
+					});
+				});
+			});
+		});     
+	</script>
+
+	
+
+	<!-- 搜索按钮 -->
+	<script>
+		$('#search').click(
+			function () {
+				window.location.href = "/admin/alumnullist/search.html?tag=" + $('#tag').val();
+			}
+		)
+	</script>
+
+</body>
+</html>
