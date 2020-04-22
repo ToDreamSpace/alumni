@@ -14,7 +14,7 @@
 				</view>
 				<view class="row">
 					<view class="title">个性签名</view>
-					<view class="right"><view class="tis">这人太懒，什么都没写</view><view class="icon xiangyou"></view></view>
+					<view class="right"><view class="tis">这人太懒，什么都没写!</view><view class="icon xiangyou"></view></view>
 				</view>
 				<view class="row">
 					<view class="title">地址</view>
