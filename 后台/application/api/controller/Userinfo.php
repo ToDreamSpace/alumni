@@ -13,7 +13,7 @@ class Userinfo extends Home
         if ($data) {
             return json(['code' => 1, 'msg' => '获取用户信息', 'data' => $data],200);
         } else {
-            return json(['code' => 0, 'msg' => '获取用户名失败']);
+            return json(['code' => 0, 'msg' => '获取用户失败']);
         }
     }
 }
