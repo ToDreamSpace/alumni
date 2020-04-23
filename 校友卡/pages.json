@@ -104,7 +104,11 @@
 				"backgroundColorBottom": "#ffffff"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/user/Improveinfo/Improveinfo",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",

@@ -8,7 +8,8 @@
     "pages/user/setting/setting",
     "pages/user/myQR/myQR",
     "pages/user/address/address",
-    "pages/user/address/edit/edit"
+    "pages/user/address/edit/edit",
+    "pages/user/Improveinfo/Improveinfo"
   ],
   "subPackages": [],
   "window": {
@@ -24,7 +25,20 @@
     "selectedColor": "#f06c7a",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list": []
+    "list": [
+      {
+        "pagePath": "pages/tabBar/home/home",
+        "iconPath": "static/img/tabBar/home.png",
+        "selectedIconPath": "static/img/tabBar/home-on.png",
+        "text": "校友会"
+      },
+      {
+        "pagePath": "pages/tabBar/user/user",
+        "iconPath": "static/img/tabBar/user.png",
+        "selectedIconPath": "static/img/tabBar/user-on.png",
+        "text": "我的"
+      }
+    ]
   },
   "permission": {},
   "uniStatistics": {

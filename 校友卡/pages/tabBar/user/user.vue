@@ -29,9 +29,24 @@
 				<view class="icon qr"></view>
 			</view>
 		</view>
-		<!-- VIP banner -->
+		<!-- VIP banner 校友卡 -->
 		<view class="VIP">
-			<image src="../../../static/img/alumni/pink.png" mode="scaleToFill"></image>
+			<image @tap="toChangezhuti"  :src="zhutitupian" mode="scaleToFill"></image>
+			<view class="info">
+				<navigator class="hassfzh" v-if="user.sfzh==null||user.sfzh==''" url="../../user/Improveinfo/Improveinfo">请完善资料</navigator>
+				<view class="bankuai">
+					NO2000012121014
+				</view>
+				<view class="bankuai">
+					
+				</view>
+				<view class="bankuai">
+					<image class="face" :src="user.face" mode="scaleToFill"></image>
+					<text>姓名：{{user.name}}</text>
+					<text>学院：{{user.bkyuanxi}}</text>
+					<text>年级：{{user.bkruxueyear}}</text>
+				</view>
+			</view>
 		</view>
 		<!--校友卡-->
 <!-- 		<view class="order">
@@ -49,6 +64,17 @@
 	export default {
 		data() {
 			return {
+				zhuti_id:0,
+				zhutitupian:'../../../static/img/alumni/purple.png',
+				zhuti:[
+					'../../../static/img/alumni/purple.png',
+					'../../../static/img/alumni/yellow.png',
+					'../../../static/img/alumni/blue.png',
+					'../../../static/img/alumni/cyan.png',
+					'../../../static/img/alumni/red.png',
+					'../../../static/img/alumni/green.png',
+					'../../../static/img/alumni/orange.png'
+				],
 				isfirst:true,
 				headerPosition:"fixed",
 				headerTop:null,
@@ -58,7 +84,11 @@
 				user:{
 					name:'***',
 					face:'/static/img/face.jpg',
-					signature:'个性签名'
+					signature:'个性签名',
+					is_authentication:"0",
+					sfzh:'',
+					bkyuanxi:'',
+					bkruxueyear:''
 				},
 			
 			}
@@ -101,6 +131,7 @@
 					},
 					success:function(res){
 						if(res.statusCode==200){
+							console.log(res);
 							self.user=res.data.data;
 						}
 					},
@@ -156,7 +187,8 @@
 			},
 			toSetting(){
 				uni.navigateTo({
-					url:'../../user/setting/setting'
+					// url:'../../user/setting/setting'
+					url:'../../user/Improveinfo/Improveinfo'
 				})
 			},
 			toMyQR(){
@@ -191,6 +223,15 @@
 				uni.navigateTo({
 					url:url
 				})
+			},
+			// 切换主题
+			toChangezhuti(){
+				if(this.zhuti_id<this.zhuti.length-1){
+					this.zhuti_id++;
+				}else{
+					this.zhuti_id=0;
+				}
+				this.zhutitupian=this.zhuti[this.zhuti_id]
 			}
 		}
 	} 
@@ -392,10 +433,16 @@
 		box-shadow: 0upx 0upx 25upx rgba(0,0,0,0.2);
 		border-radius: 10upx;
 		display: flex;
+		position: relative;
 		align-items: center;
 		image{
-			border-radius: 10upx;
+			border-radius: 5upx;
 			width: 100%;
+		}
+		.face{
+			border-radius: 5upx;
+			width: 160upx;
+			height: 160upx;
 		}
 		.title{
 			width: 100%;
@@ -408,6 +455,34 @@
 			justify-content: flex-end;
 			color: #fcf0d0;
 			font-size: 26upx;
+		}
+		.hassfzh{
+			position: absolute;
+			width: 40%;
+			height:60upx;
+			top: 35%;
+			left: 30%;
+			text-align: center;
+			vertical-align:middle;
+			background-color: red;
+			border-radius: 5upx;
+			color: white;
+		}
+		.info{
+			position: absolute;
+			width: 100%;
+		}
+		.bankuai{
+			padding-top: 10px;
+			text-align: center;
+			position: relative;
+			display: inline-block;
+			width: 33%;
+			height: 100%;
+			text{
+				text-align: left;
+				display: block;
+			}
 		}
 	}
 	.toolbar{

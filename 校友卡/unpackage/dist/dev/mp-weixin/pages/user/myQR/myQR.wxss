@@ -54,8 +54,8 @@ page {
           align-items: center;
 }
 .QR image {
-    width: 50vw;
-    height: 50vw;
+  width: 50vw;
+  height: 50vw;
 }
 .title {
   width: 100%;
@@ -99,6 +99,6 @@ page {
   bottom: 25rpx;
 }
 .logo image {
-    width: 39.6%;
+  width: 39.6%;
 }
 
