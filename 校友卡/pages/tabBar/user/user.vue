@@ -7,7 +7,7 @@
 				
 			</view>
 			<view class="icon-btn">
-				<view class="icon tongzhi" @tap=""></view>
+				<view class="icon tongzhi" ></view>
 				<view class="icon setting" @tap="toSetting"></view>
 			</view>
 		</view>
@@ -31,20 +31,22 @@
 		</view>
 		<!-- VIP banner 校友卡 -->
 		<view class="VIP">
-			<image @tap="toChangezhuti"  :src="zhutitupian" mode="scaleToFill"></image>
+			<image  :src="zhutitupian" mode="scaleToFill"></image>
 			<view class="info">
-				<navigator class="hassfzh" v-if="user.sfzh==null||user.sfzh==''" url="../../user/Improveinfo/Improveinfo">请完善资料</navigator>
-				<view class="bankuai">
-					NO2000012121014
+				<navigator class="hassfzh" v-if="user.sfzh==null||user.sfzh==''" url="../../user/Improveinfo/Improveinfo"><text>请完善资料</text></navigator>
+				<view @tap="toChangezhuti" class="bankuai1">
+					<text class="NO">NO2000012121014</text>
 				</view>
-				<view class="bankuai">
+				<view @tap="toChangezhuti" class="bankuai2">
 					
 				</view>
-				<view class="bankuai">
+				<view @tap="toChangezhuti" class="bankuai3">
 					<image class="face" :src="user.face" mode="scaleToFill"></image>
-					<text>姓名：{{user.name}}</text>
-					<text>学院：{{user.bkyuanxi}}</text>
-					<text>年级：{{user.bkruxueyear}}</text>
+					<view class="infotxt">
+						<text>姓名：{{user.name}}</text>
+						<text>学院：{{user.bkyuanxi}}</text>
+						<text>年级：{{user.bkruxueyear}}</text>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -65,13 +67,13 @@
 		data() {
 			return {
 				zhuti_id:0,
-				zhutitupian:'../../../static/img/alumni/purple.png',
+				zhutitupian:'../../../static/img/alumni/red.png',
 				zhuti:[
+					'../../../static/img/alumni/red.png',
 					'../../../static/img/alumni/purple.png',
 					'../../../static/img/alumni/yellow.png',
 					'../../../static/img/alumni/blue.png',
 					'../../../static/img/alumni/cyan.png',
-					'../../../static/img/alumni/red.png',
 					'../../../static/img/alumni/green.png',
 					'../../../static/img/alumni/orange.png'
 				],
@@ -297,7 +299,7 @@
 		display: flex;
 		align-items: center;
 		// position: relative;
-		background-color: #f06c7a;
+		background:linear-gradient(to bottom, #f06c7a 0%, #7f010a 100%);
 		padding-bottom: 120upx;
 		.left{
 			width: 20vw;
@@ -436,10 +438,11 @@
 		position: relative;
 		align-items: center;
 		image{
-			border-radius: 5upx;
+			border-radius: 8upx;
 			width: 100%;
 		}
 		.face{
+			margin-top:80upx;
 			border-radius: 5upx;
 			width: 160upx;
 			height: 160upx;
@@ -462,26 +465,57 @@
 			height:60upx;
 			top: 35%;
 			left: 30%;
-			text-align: center;
 			vertical-align:middle;
-			background-color: red;
-			border-radius: 5upx;
+			background-color:#7f010a;
+			border-radius: 10upx;
 			color: white;
+			display:flex;
+			justify-content: center;
+			align-items:center;
+			box-shadow: 2px 2px 2px #888888;
 		}
 		.info{
 			position: absolute;
+			display: flex;
 			width: 100%;
+			height: 100%;
 		}
-		.bankuai{
+		.bankuai1{
 			padding-top: 10px;
 			text-align: center;
-			position: relative;
-			display: inline-block;
-			width: 33%;
+			// display: inline-block;
+			width: 35%;
 			height: 100%;
-			text{
+			.NO{
+				position: relative;
+				top: 78%;
+				left:10%;
+				font-size: small;
+				font-family: KaiTi;
 				text-align: left;
 				display: block;
+			}
+		}
+		.bankuai2{
+			padding-top: 10px;
+			text-align: center;
+			// display: inline-block;
+			width: 30%;
+			height: 100%;
+		}
+		.bankuai3{
+			padding-top: 10px;
+			text-align: center;
+			// display: inline-block;
+			width: 35%;
+			height: 100%;
+			.infotxt{
+				text{
+					font-size: small;
+					font-family: KaiTi;
+					display: block;
+					text-align: left;
+				}
 			}
 		}
 	}

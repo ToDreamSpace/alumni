@@ -8,9 +8,6 @@ use think\Request;
 //鉴权
 class Home extends Base
 {
-    /**
-     * @param Request $request
-     */
     public function initialize()
     {
         parent::initialize();

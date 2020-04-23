@@ -30,13 +30,13 @@
         "pagePath": "pages/tabBar/home/home",
         "iconPath": "static/img/tabBar/home.png",
         "selectedIconPath": "static/img/tabBar/home-on.png",
-        "text": "校友会"
+        "text": "西政"
       },
       {
         "pagePath": "pages/tabBar/user/user",
         "iconPath": "static/img/tabBar/user.png",
         "selectedIconPath": "static/img/tabBar/user-on.png",
-        "text": "我的"
+        "text": "校友卡"
       }
     ]
   },

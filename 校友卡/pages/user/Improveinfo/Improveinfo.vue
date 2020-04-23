@@ -96,14 +96,17 @@
 						var uper = uni.uploadFile({
 							// 需要上传的地址
 							url:self.$url+'upload/upload',
+							header:{
+								token:global.islogin()
+							},
 							// filePath  需要上传的文件
 							filePath: imgFiles,
 							name: 'file',
 							success(res1) {
 								// 显示上传信息
-								console.log(res1)
-								// res1=JSON.parse(res1.data);
-								// self.upload_return_url=self.$url_root+res1.url;
+								console.log(res1);
+								res1=JSON.parse(res1.data);
+								self.upload_return_url=self.$url_root+res1.url;
 							}
 						});
 						// onProgressUpdate 上传对象更新的方法

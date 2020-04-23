@@ -6,7 +6,7 @@ use think\Controller;
 use think\Request;
 use think\response\Json;
 
-class Upload extends Controller
+class Upload extends Home
 {
     //分类图标上传接收
     public function upload(Request $request)

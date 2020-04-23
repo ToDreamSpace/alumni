@@ -10,6 +10,8 @@ use think\Request;
 
 class Login extends Base
 {
+
+
     public function login(Request $request)
     {
         $data=$request->param();
