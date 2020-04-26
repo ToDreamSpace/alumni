@@ -124,7 +124,7 @@
 					url:'../../login/login'
 				})
 			}else{
-				//登录就保存token信息 李杰  
+				//登录就发送Token到后端s 李杰  
 				uni.request({
 					url:self.$url+'userinfo/index',
 					method:'POST',
@@ -137,7 +137,7 @@
 							self.user=res.data.data;
 						}
 					},
-					complete:function(res){//token若过期
+					complete:function(res){//token若过期  李杰  token过期这里已经做了 
 						if(res.statusCode!=200){
 							//跳转到登录页面
 							uni.reLaunch({
