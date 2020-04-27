@@ -10,7 +10,7 @@ class Userinfo extends Home
     public function index()
     {
         $db = new RegisterAlumniModel();
-        $data = $db->where('id',$this->uid)->field('username,name,face,signature,sfzh,education,is_authentication,bkyuanxi,bkruxueyear')->find();
+        $data = $db->where('id',$this->uid)->with('profileYuanxi')->field('username,name,face,signature,sfzh,education,is_authentication,bkyuanxi,bkruxueyear')->find();
         if ($data) {
             return json(['code' => 1, 'msg' => '获取用户信息', 'data' => $data],200);
         } else {
@@ -21,7 +21,7 @@ class Userinfo extends Home
     public function moreInfo()
     {
         $db = new RegisterAlumniModel();
-        $data = $db->where('id',$this->uid)->field('name,sfzh,email,qq,xh,education,bkzhuanye,bkyuanxi,bkruxueyear,face')->find();
+        $data = $db->where('id',$this->uid)->with('profileYuanxi')->field('name,sfzh,email,qq,xh,education,bkzhuanye,bkyuanxi,bkruxueyear,face')->find();
         if ($data) {
             return json(['code' => 1, 'msg' => '获取用户信息', 'data' => $data],200);
         } else {

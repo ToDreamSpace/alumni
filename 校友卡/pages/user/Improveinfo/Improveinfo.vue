@@ -17,7 +17,7 @@
 			<input class="uni-input" v-model="user.bkruxueyear" />
 			<view class="title">院系</view>
 			<view>
-				<picker @change="bindPickerChange" :value="index" :range="yuanxiarray">
+				<picker @change="bindPickerChange" :value="index" range-key="yuanxi" :range="yuanxiarray">
 					<view>{{yuanxiarray[index].yuanxi}}</view>
 				</picker>
 			</view>
@@ -38,7 +38,7 @@
 	export default {
 		data() {
 			return {
-				yuanxiarray:[],
+				yuanxiarray:'',
 				index: 0,
 				percent: '',
 				user: {
@@ -49,7 +49,7 @@
 					xh: '',
 					education: '',
 					bkruxueyear: '',
-					bkyuanxi: '',
+					bkyuanxiID: '',
 					bkzhuanye: '',
 					face: '',
 					signature: ''
@@ -102,6 +102,7 @@
 				// console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
 				var self = this;
 				var data = self.user;
+				data.bkyuanxi=self.yuanxiarray[self.index].ID
 				uni.request({
 					url: self.$url + 'updateinfo/updateinfo',
 					data: data,

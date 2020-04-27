@@ -44,7 +44,7 @@
 					<image class="face" :src="user.face" mode="scaleToFill"></image>
 					<view class="infotxt">
 						<text>姓名：{{user.name}}</text>
-						<text>学院：{{user.bkyuanxi}}</text>
+						<text>学院：{{user.profile_yuanxi.yuanxi}}</text>
 						<text>年级：{{user.bkruxueyear}}</text>
 					</view>
 				</view>
