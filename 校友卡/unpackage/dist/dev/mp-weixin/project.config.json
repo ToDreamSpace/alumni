@@ -4,29 +4,12 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"urlCheck": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
 	"appid": "touristappid",
-	"projectname": "%E6%A0%A1%E5%8F%8B%E5%8D%A1",
+	"projectname": "校友卡",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

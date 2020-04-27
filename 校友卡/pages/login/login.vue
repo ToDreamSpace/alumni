@@ -143,7 +143,7 @@
 				var data='';
 				uni.request({
 					url:self.$url+'login/login',
-					data:{username:self.phoneNumber,password:md5(self.passwd)},
+					data:{username:self.phoneNumber,password:self.passwd},
 					method:'POST',
 					success:function(res){
 						if(res.data.code==1){

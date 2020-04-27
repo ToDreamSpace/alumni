@@ -109,8 +109,6 @@
 		},
 		onLoad() {
 			var self=this;
-			
-			
 			this.statusHeight = 0;
 			// #ifdef APP-PLUS
 			this.showHeader = false;
@@ -138,7 +136,7 @@
 						}
 					},
 					complete:function(res){//token若过期  李杰  token过期这里已经做了 
-						if(res.statusCode!=200){
+						if(res.data.code==0){
 							//跳转到登录页面
 							uni.reLaunch({
 								url:'../../login/login'

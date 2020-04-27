@@ -44,5 +44,6 @@
   "uniStatistics": {
     "enable": false
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap20.json"
 }

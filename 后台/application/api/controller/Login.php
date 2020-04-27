@@ -10,8 +10,7 @@ use think\Request;
 
 class Login extends Base
 {
-
-
+//    登录
     public function login(Request $request)
     {
         $data=$request->param();
@@ -34,4 +33,5 @@ class Login extends Base
         $token=JWT::encode($payload,$key);
         return json(['code'=>1,'msg'=>'登录成功','token'=>$token]);
     }
+
 }
