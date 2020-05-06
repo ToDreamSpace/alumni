@@ -166,26 +166,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      yuanxiarray: '',
-      index: 0,
-      percent: '',
+      percent: '', //进度
       user: {
         name: '',
         sfzh: '',
         email: '',
         qq: '',
-        xh: '',
-        education: '',
-        bkruxueyear: '',
-        bkyuanxiID: '',
-        bkzhuanye: '',
         face: '',
         signature: '' } };
-
 
 
   },
@@ -209,18 +211,6 @@ var _default =
           self.user = res.data.data;
         } });
 
-      //获取院系
-      uni.request({
-        url: self.$url + 'Getyuanxi/index',
-        method: 'GET',
-        header: {
-          token: global.islogin() },
-
-        success: function success(res) {
-          self.yuanxiarray = res.data;
-          console.log(res);
-        } });
-
     }
   },
   methods: {
@@ -229,12 +219,11 @@ var _default =
       this.index = e.target.value;
     },
 
-
     formSubmit: function formSubmit(e) {
       // console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
       var self = this;
       var data = self.user;
-      data.bkyuanxi = self.yuanxiarray[self.index].ID;
+      // data.bkyuanxi = self.yuanxiarray[self.index].ID;
       uni.request({
         url: self.$url + 'updateinfo/updateinfo',
         data: data,
@@ -250,11 +239,10 @@ var _default =
               success: function success(res) {
                 if (res.confirm) {
                   uni.reLaunch({
-                    url: "../../tabBar/user/user" });
+                    url: '../../tabBar/user/user' });
 
                 }
               } });
-
 
           } else {
             uni.showToast({
@@ -268,7 +256,6 @@ var _default =
     formReset: function formReset(e) {
       console.log('清空数据');
     },
-
 
     //上传图片
     cI: function cI() {

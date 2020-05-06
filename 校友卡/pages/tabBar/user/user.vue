@@ -7,7 +7,7 @@
 				
 			</view>
 			<view class="icon-btn">
-				<view class="icon tongzhi" ></view>
+				<!-- <view class="icon tongzhi" ></view> -->
 				<view class="icon setting" @tap="toSetting"></view>
 			</view>
 		</view>
@@ -35,7 +35,7 @@
 			<view class="info">
 				<navigator class="hassfzh" v-if="user.sfzh==null||user.sfzh==''" url="../../user/Improveinfo/Improveinfo"><text>请完善资料</text></navigator>
 				<view @tap="toChangezhuti" class="bankuai1">
-					<text class="NO">NO2000012121014</text>
+					<text class="NO">NO{{user.id}}</text>
 				</view>
 				<view @tap="toChangezhuti" class="bankuai2">
 					
@@ -44,8 +44,8 @@
 					<image class="face" :src="user.face" mode="scaleToFill"></image>
 					<view class="infotxt">
 						<text>姓名：{{user.name}}</text>
-						<text>学院：{{user.profile_yuanxi.yuanxi}}</text>
-						<text>年级：{{user.bkruxueyear}}</text>
+						<text>学院：{{viewCollege.college}}</text>
+						<text>年级：{{viewCollege.rxrq}}级</text>
 					</view>
 				</view>
 			</view>
@@ -84,15 +84,25 @@
 				showHeader:true,
 				//个人信息,
 				user:{
+					id:'00000000000',
 					name:'***',
 					face:'/static/img/face.jpg',
 					signature:'个性签名',
 					is_authentication:"0",
 					sfzh:'',
-					bkyuanxi:'',
-					bkruxueyear:''
+					zuigaoxueli:'',
+					is_authentication:''
 				},
-			
+				// 显示学院
+				viewCollege:{
+					byrq: "2020",
+					college: "***",
+					id: "***",
+					major: "***",
+					rxrq: "***",
+				},
+			// 最高学历
+			zuigaoxueli:'本科',
 			}
 		},
 		//下拉刷新，需要自己在page.json文件中配置开启页面下拉刷新 "enablePullDownRefresh": true
@@ -131,8 +141,15 @@
 					},
 					success:function(res){
 						if(res.statusCode==200){
-							console.log(res);
 							self.user=res.data.data;
+							self.zuigaoxueli=res.data.data.zuigaoxueli;
+							switch(self.zuigaoxueli){
+								case '本科':self.viewCollege=res.data.data.benke;break;
+								case '专科':self.viewCollege=res.data.data.zhuanke;break;
+								case '硕士':self.viewCollege=res.data.data.shuoshi;break;
+								case '博士':self.viewCollege=res.data.data.boshi;break;
+								self.viewCollege=res.data.data.hanshou;break;
+							}
 						}
 					},
 					complete:function(res){//token若过期  李杰  token过期这里已经做了 

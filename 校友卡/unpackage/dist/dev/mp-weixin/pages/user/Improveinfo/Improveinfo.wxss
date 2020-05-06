@@ -29,7 +29,31 @@
 }
 .form-box input {
   border-width: 10px;
-  border-color: #f8f8f8;
-  border-radius: 10rpx;
+  border: 1px solid #e5e0e0;
+  border-radius: 5rpx;
+  margin: 2rpx 0 2rpx 0;
+}
+.form-box .info_part,
+.form-box .education_part,
+.form-box .picture_part,
+.form-box .else_part,
+.form-box .work_part {
+  margin-bottom: 30rpx;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  padding: 5px;
+}
+.form-box .part_title {
+  text-align: right;
+  font-size: small;
+  color: #a0a0a0;
+}
+.form-box .title {
+  font-size: smaller;
+  color: #a0a0a0;
+}
+.form-box .part_text text {
+  color: #a5a4a4;
+  display: block;
 }
 

@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni, global) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni, global) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
 //
 //
 //
@@ -220,16 +220,26 @@ var _default =
       statusTop: null,
       showHeader: true,
       //个人信息,
-      user: {
+      user: _defineProperty({
+        id: '00000000000',
         name: '***',
         face: '/static/img/face.jpg',
         signature: '个性签名',
         is_authentication: "0",
         sfzh: '',
-        bkyuanxi: '',
-        bkruxueyear: '' } };
+        zuigaoxueli: '' }, "is_authentication",
+      ''),
 
+      // 显示学院
+      viewCollege: {
+        byrq: "2020",
+        college: "***",
+        id: "***",
+        major: "***",
+        rxrq: "***" },
 
+      // 最高学历
+      zuigaoxueli: '本科' };
 
   },
   //下拉刷新，需要自己在page.json文件中配置开启页面下拉刷新 "enablePullDownRefresh": true
@@ -268,8 +278,15 @@ var _default =
 
         success: function success(res) {
           if (res.statusCode == 200) {
-            console.log(res);
             self.user = res.data.data;
+            self.zuigaoxueli = res.data.data.zuigaoxueli;
+            switch (self.zuigaoxueli) {
+              case '本科':self.viewCollege = res.data.data.benke;break;
+              case '专科':self.viewCollege = res.data.data.zhuanke;break;
+              case '硕士':self.viewCollege = res.data.data.shuoshi;break;
+              case '博士':self.viewCollege = res.data.data.boshi;break;
+                self.viewCollege = res.data.data.hanshou;break;}
+
           }
         },
         complete: function complete(res) {//token若过期  李杰  token过期这里已经做了 

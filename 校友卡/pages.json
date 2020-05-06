@@ -106,7 +106,27 @@
 		}
 	    ,{
             "path" : "pages/user/Improveinfo/Improveinfo",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "基础信息"
+			}
+        }
+        ,{
+            "path" : "pages/user/Improveinfo/education_part",
+            "style" : {
+				"navigationBarTitleText": "学历信息"
+			}
+        }
+        ,{
+            "path" : "pages/user/Improveinfo/work_part",
+            "style" : {
+				"navigationBarTitleText": "工作信息"
+			}
+        }
+        ,{
+            "path" : "pages/user/Improveinfo/else_part",
+            "style" : {
+				"navigationBarTitleText": "其他资料"
+			}
         }
     ],
 	"globalStyle": {

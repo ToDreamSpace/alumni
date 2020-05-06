@@ -9,7 +9,10 @@
     "pages/user/myQR/myQR",
     "pages/user/address/address",
     "pages/user/address/edit/edit",
-    "pages/user/Improveinfo/Improveinfo"
+    "pages/user/Improveinfo/Improveinfo",
+    "pages/user/Improveinfo/education_part",
+    "pages/user/Improveinfo/work_part",
+    "pages/user/Improveinfo/else_part"
   ],
   "subPackages": [],
   "window": {
